@@ -19,8 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //student route group
-//add verify to routes to add verified email auth
-Route::middleware(['student', 'auth'])->group(function () {
+Route::middleware(['student', 'auth','verified'])->group(function () {
     Route::get('/', function () {
         $pq['bookInfos'] = request()->input('bookInfo') ?? null;
         $pq['sortField'] = request()->input('sortField') ?? 'title';
