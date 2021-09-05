@@ -1,0 +1,160 @@
+html {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 450px) {
+  .order {
+    &__content {
+      display: flex;
+      align-items: center;
+    }
+    &__status__link {
+      margin: 1em;
+    }
+  }
+  .content__infos {
+    font-size: 1em;
+  }
+}
+@media (min-width: 620px) {
+  .body__cell {
+    font-size: 1em;
+  }
+  .end__link {
+    font-size: 1em;
+  }
+  .book__info {
+    font-size: 1em;
+  }
+  .btn {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 800px) {
+  .header {
+    max-width: 800px;
+    #c__menu:checked {
+      & ~ nav {
+        transform: translateX(401px);
+      }
+    }
+    #main__menu:checked {
+      & ~ nav {
+        transform: translateX(-401px);
+      }
+    }
+  }
+  .header__menu--teacher,
+  .header__menu--student {
+    left: -401px;
+  }
+  .header__menu--app {
+    left: 1000px;
+  }
+}
+
+@media (min-width: 1202px) {
+  //   .app__body {
+  //     background-color: $dark-blue;
+  //     padding: 0 12.8111273792%;
+  //   }
+
+  //   .header {
+  //     width: 100%;
+  //     margin: 0 auto;
+  //     position: relative;
+  //     padding: 2.645em 0 2.645em;
+  //     &__title {
+  //       display: flex;
+  //       font-size: 2.822em;
+  //       text-align: left;
+  //       align-items: center;
+  //       justify-content: space-between;
+  //       &--fw {
+  //         width: 468px;
+  //         margin: 0 auto;
+  //       }
+  //     }
+  //   }
+  //   .login__title {
+  //     text-align: left;
+  //     min-width: 300px;
+  //     margin-left: 30px;
+  //     display: inline-block;
+  //   }
+  //   #logo {
+  //     width: 155px;
+  //     height: 158px;
+  //   }
+  //   .main__content {
+  //     background-color: $dark-blue;
+  //   }
+  //   .content__container {
+  //     margin: 0 auto;
+  //     border-radius: 5px;
+  //     background-color: $dark-blue;
+  //     box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.16);
+  //     &--fh {
+  //       max-width: 352px;
+  //     }
+  //     &--login {
+  //       min-height: 0;
+  //       max-width: 352px;
+  //       max-height: 419px;
+  //     }
+  //   }
+  //   .content__container--fh {
+  //     min-height: 0;
+  //   }
+  //   .content__container--register {
+  //     padding-top: 1px;
+  //     margin-top: 1em;
+  //     margin-bottom: 1em;
+  //     .form {
+  //       padding-bottom: 0.5em;
+  //     }
+  //   }
+  //   .menu__label {
+  //     &--left,
+  //     &--right,
+  //     #c__menu,
+  //     #main__menu {
+  //       display: none;
+  //     }
+  //   }
+  //   .header__menu--teacher,
+  //   .header__menu--student,
+  //   .header__menu--app {
+  //     position: absolute;
+  //   }
+
+  //   .header__menu--app {
+  //     left: auto;
+  //     right: 0;
+  //   }
+
+  #app_title {
+    margin: 0 auto;
+  }
+
+  .menu__title {
+    margin-left: 10px;
+  }
+  .menu__label {
+    &--left,
+    &--right,
+    #c__menu,
+    #main__menu {
+      display: none;
+    }
+  }
+  .header__menu--teacher,
+  .header__menu--student {
+    left: -201px;
+  }
+  .header__menu--app {
+    left: 800px;
+  }
+}

@@ -1,0 +1,16 @@
+//define the base size for 1 rem
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
+
+//with fall-back in px for older browsers
+@mixin fontSize($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@mixin lineHeight($size) {
+    line-height: $size;
+    line-height: calculateRem($size);
+}
