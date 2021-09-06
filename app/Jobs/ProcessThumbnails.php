@@ -47,6 +47,7 @@ class ProcessThumbnails implements ShouldQueue
             $constraint->aspectRatio();
             $constraint->upsize();
         })->save($filePath, 75, $extension);
+        
         if ($this->book->cover) {
             $this->book->cover->cover = $fileName;
             $this->book->cover->save();
