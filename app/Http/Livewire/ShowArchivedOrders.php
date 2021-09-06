@@ -18,8 +18,7 @@ class ShowArchivedOrders extends Component
     {
         switch ($this->searchString) {
             case 'null':
-                $orders = Order::select('*')
-                    ->where('is_archived', 1)
+                $orders = Order::where('is_archived', 1)
                     ->join('users', 'users.id', '=', 'user_id')
                     ->withCurrentStatus()
                     ->get();
@@ -27,8 +26,7 @@ class ShowArchivedOrders extends Component
             default:
 
 
-            $orders = Order::select('*')
-            ->where('is_archived', 1)
+            $orders = Order::where('is_archived', 1)
             ->where(
                 function ($query) {
                     $query->orwhere('users.firstname', 'like', "%{$this ->searchString}%")
