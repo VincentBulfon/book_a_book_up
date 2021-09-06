@@ -19,19 +19,17 @@ class ShowOrders extends Component
     {
         switch ($this->searchString) {
             case 'null':
-                $orders = Order::select('*')
-                    ->where('is_archived', 0)
-                    ->where('is_draft', 0)
-                    ->join('users', 'users.id', '=', 'user_id')
-                    ->withCurrentStatus()
+                $orders = Order::where('is_archived', 0)
+                ->where('is_draft', 0)
+                ->join('users', 'users.id', '=', 'user_id')
+                ->withCurrentStatus()
                     ->get();
                 break;
             default:
 
 
-            $orders = Order::select('*')
+            $orders = Order::withCurrentStatus()
             ->join('users', 'users.id', '=', 'user_id')
-            ->withCurrentStatus()
             ->orWhere(
                 function ($query) {
                     $query
@@ -46,16 +44,16 @@ class ShowOrders extends Component
                     ->where('is_archived', false)
                     ->where('users.name', 'like', "%{$this ->searchString}%");
                 }
-            )->orWhere(function ($q) {
+            )
+            ->orWhere(function ($q) {
                 $q
                 ->where('is_draft', 0)
                 ->where('is_archived', false)
                 ->where('orders.id', 'like', "%{$this ->searchString}%");
             })
-            ->get();
+           ->get();
                 break;
         }
-        
         return view('livewire.show-orders', ['orders'=> $orders]);
     }
 }

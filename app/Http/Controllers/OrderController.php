@@ -37,16 +37,24 @@ class OrderController extends Controller
     {
         $userId= $request->user->id;
     
-        $order = Order::where('user_id', $userId)->where('is_draft', true)->with('books')->first();
+        //get order for the current user
+        $order = Order::where('user_id', $userId)->orderBy('created_at', 'desc')->where('is_draft', true)->with('books')->first();
+        //check if order has book
         $noBooks= count($order->books) == 0;
+        //if no books redirect back with alert message
         if ($noBooks) {
             $request->session()->flash('status', 'Vous devez au moins commander un livre !');
             return redirect()->route('studentHome');
         }
+        //if books
         if (!$noBooks) {
+            //add status no paid to order
             $order->statuses()->attach(1, ['created_at'=>now(), 'updated_at'=>now()]);
+            //remove draft status
             $order->is_draft = 0;
+            //save order
             $order->save();
+            //redirect
             return  redirect()->route('studentPay');
         }
     }
