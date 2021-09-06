@@ -23,12 +23,18 @@
                         <dt class="book__term book__info__term">ISBN&nbsp;:</dt>
                         <dd class="book__def book__info__def">{{$book->isbn}}</dd>
                     </dl>
+                    @if($book->textualContent)
                     <dl class="book__info__more">
                         <dt class="more__term book__info__more__term">Remarque sur l'édition&nbsp;:</dt>
                         <dd class="more__def book__info__more__def">
+<<<<<<< HEAD
                             @if({{$book->textualContent}}){{$book->textualContent->text}} @endif
+=======
+                            {{$book->textualContent->text}}
+>>>>>>> c8126b35b2e8eff0ef4597bca565c1bf9e8f50b5
                         </dd>
                     </dl>
+                    @endif
                     <div class="form__control--inline">
                         <div class="quantity__container">
                             <input type="hidden" name="book_id" value="{{$book->id}}">
